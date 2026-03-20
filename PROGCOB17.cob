@@ -1,0 +1,39 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB16.
+      *********************************
+      *AREA DE COMENTARIOS - REMARKS***
+      *AUTHOR = VINICIUS(ALTAFINI)*****
+      *OBJETIVO: RECEBER E IMPRIMIR A DATA DO SISTEMA
+      *UTILIZAR VARIAVEL TIPO TABELA - REDEFINES
+      *DATA   = 13/03/2026 
+      *********************************
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.  
+       01 WRK-MESES-EXTENSO.
+           02 FILLER PIC X(03) VALUE 'JAN'.
+           02 FILLER PIC X(03) VALUE 'FEV'.
+           02 FILLER PIC X(03) VALUE 'MAR'.
+           02 FILLER PIC X(03) VALUE 'ABR'.
+           02 FILLER PIC X(03) VALUE 'MAI'.
+           02 FILLER PIC X(03) VALUE 'JUN'.
+           02 FILLER PIC X(03) VALUE 'JUL'.
+           02 FILLER PIC X(03) VALUE 'AGO'.
+           02 FILLER PIC X(03) VALUE 'SET'.
+           02 FILLER PIC X(03) VALUE 'OUT'.
+           02 FILLER PIC X(03) VALUE 'NOV'.
+           02 FILLER PIC X(03) VALUE 'DEZ'.
+       01 WRK-MESES REDEFINES WRK-MESES-EXTENSO.
+           02 WRK-MES PIC X(3) OCCURS 12 TIMES.   
+       01 DATASYS.
+          02 WRK-ANOSYS PIC 9(04) VALUES ZEROS.
+          02 WRK-MESSYS PIC 9(02) VALUES ZEROS.
+          02 WRK-DIASYS PIC 9(02) VALUES ZEROS.    
+       PROCEDURE  DIVISION.
+           ACCEPT DATASYS FROM DATE YYYYMMDD.
+           DISPLAY 'DATA ' WRK-DIASYS ' DE ' WRK-MES(WRK-MESSYS) 
+                    ' DE ' WRK-ANOSYS.
+           STOP RUN.
+       
+      
+      

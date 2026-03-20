@@ -1,0 +1,4 @@
+       77 WRK-VENDAS   PIC 9(06)V99 VALUES ZEROS.
+       77 WRK-QT       PIC 9(03) VALUES 0.
+       77 WRK-ACUM     PIC 9(08)V99 VALUES ZEROS.
+       

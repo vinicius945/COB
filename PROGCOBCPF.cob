@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB02.
+      *********************************
+      *AREA DE COMENTARIOS - REMARKS***
+      *AUTHOR = VINICIUS(ALTAFINI)*****
+      *OBJETIVO: RECEBER E IMPRIMIR O CPF
+      *DATA   = 04/03/2026 
+      *********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.  
+       77 WRK-CPF PIC X(11) VALUE SPACES.   
+       77 WRK-CPF-ED PIC ZZZ.ZZZ.ZZ9/99.
+       PROCEDURE  DIVISION.
+           ACCEPT WRK-CPF FROM CONSOLE.
+
+           MOVE WRK-CPF TO WRK-CPF-ED.
+           DISPLAY 'Seu CPF: ' WRK-CPF-ED.
+           STOP RUN.
