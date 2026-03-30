@@ -5,7 +5,7 @@
        WORKING-STORAGE SECTION.
        01 IDADE         PIC 9(3).
        01 TEMPO         PIC 9(2).
-       01 FIDELIZACAO        PIC X(30).
+       01 FIDELIZACAO   PIC X(30).
  
        PROCEDURE DIVISION.
            DISPLAY "Digite a idade do cliente:".
