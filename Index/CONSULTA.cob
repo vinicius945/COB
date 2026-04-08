@@ -53,10 +53,15 @@
            READ ARQCRM.
 
            EVALUATE ARQCRM-FS
-              WHEN 00            
+              WHEN 00
+                     
                  DISPLAY ARQCRM-NOME            LINE 04 COLUMN 01
                  DISPLAY ARQCRM-EMAIL           LINE 05 COLUMN 01
                  DISPLAY ARQCRM-TELEFONE        LINE 06 COLUMN 01
+                 IF ARQCRM-STATUS EQUAL  1
+                    DISPLAY "--INATIVO"         LINE 07 COLUMN 01
+                 END-IF
+      
               WHEN 23
               DISPLAY "ID NAO ENCONTRADO"       LINE 20 COLUMN 01
           

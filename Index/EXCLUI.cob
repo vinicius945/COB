@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. ALTERA.
+       PROGRAM-ID. EXCLUI.
 
        ENVIRONMENT        DIVISION.
        INPUT-OUTPUT       SECTION.
@@ -17,7 +17,6 @@
        COPY "#CRM".
 
        WORKING-STORAGE    SECTION.
-       COPY  '#CRM-WRK'.
        01 ARQCRM-FS          PIC 9(02) VALUES ZEROS.
 
 
@@ -45,54 +44,42 @@
            END-IF.   
               
        PROCESSAR SECTION.
-           DISPLAY "ALTERA  "                    LINE 01 COLUMN 01.
+           DISPLAY "EXCLUSAO  "                  LINE 01 COLUMN 01.
            DISPLAY "----------"                  LINE 02 COLUMN 01.
+
            DISPLAY "ID DO CLIENTE "              LINE 03 COLUMN 01.
-              ACCEPT WRK-ARQCRM-ID               LINE 03 COLUMN 25.
-              MOVE   WRK-ARQCRM-ID TO ARQCRM-ID.
+              ACCEPT ARQCRM-ID                   LINE 03 COLUMN 25.
 
            READ ARQCRM.
 
            EVALUATE ARQCRM-FS
       *--------------------- ENTRADA DE DADOS PARA A ALTERACAO
-              WHEN 00
-                IF ARQCRM-STATUS EQUAL 1
-                  DISPLAY "CONTA INATIVA, NAO E POSSIVEL ALTERAR"
-                ELSE
+              WHEN 00   
                  DISPLAY "NOME "                   LINE 04 COLUMN 01
                  DISPLAY ARQCRM-NOME               LINE 04 COLUMN 15
-                 DISPLAY "NOVO NOME "              LINE 05 COLUMN 01
-                    ACCEPT WRK-ARQCRM-NOME         LINE 05 COLUMN 15
 
-                 DISPLAY "EMAIL "                  LINE 07 COLUMN 01
-                 DISPLAY ARQCRM-EMAIL              LINE 07 COLUMN 15
-                 DISPLAY "NOVO E-MAIL "            LINE 08 COLUMN 01 
-                    ACCEPT WRK-ARQCRM-EMAIL        LINE 08 COLUMN 15
-                 DISPLAY "TELEFONE "               LINE 10 COLUMN 01
-                 DISPLAY ARQCRM-TELEFONE           LINE 10 COLUMN 15
-                 DISPLAY "NOVO TELEFONE "          LINE 11 COLUMN 01
-                    ACCEPT  WRK-ARQCRM-TELEFONE    LINE 11 COLUMN 15
+                 DISPLAY "EMAIL "                  LINE 05 COLUMN 01
+                 DISPLAY ARQCRM-EMAIL              LINE 05 COLUMN 15
                 
 
-                   
+                 DISPLAY "TELEFONE "               LINE 06 COLUMN 01
+                 DISPLAY ARQCRM-TELEFONE           LINE 06 COLUMN 15
+                
 
 
-                 DISPLAY "DESEJA ALTERAR (S/N)? "   LINE 13 COLUMN 01          
-                    ACCEPT WRK-CONFIRMA             LINE 13 COLUMN 25 
+                DISPLAY "DESEJA EXCLUIR (S/N)? "   LINE 13 COLUMN 01          
+                   ACCEPT WRK-CONFIRMA             LINE 13 COLUMN 25 
 
-                    IF WRK-CONFIRMA EQUAL "S"
-                       MOVE WRK-ARQCRM-NOME       TO ARQCRM-NOME
-                       MOVE WRK-ARQCRM-EMAIL      TO ARQCRM-EMAIL
-                       MOVE WRK-ARQCRM-TELEFONE   TO ARQCRM-TELEFONE                    
-                       REWRITE ARQCRM-REGISTRO
-                       DISPLAY "REGISTRO REGRAVADO" LINE 15 COLUMN 01
-                    END-IF
-                END-IF    
+                   IF WRK-CONFIRMA EQUAL "S"
+
+                      DELETE ARQCRM
+                      DISPLAY "REGISTRO EXCLUIDO"  LINE 15 COLUMN 01
+                   END-IF
               WHEN 23
-              DISPLAY "ID NAO ENCONTRADO"          LINE 20 COLUMN 01
+              DISPLAY "ID NAO ENCONTRADO"          LINE 15 COLUMN 01
           
               WHEN OTHER 
-                 DISPLAY "ERRO DE ABERTURA "       LINE 20 COLUMN 01
+                 DISPLAY "ERRO  "                  LINE 15 COLUMN 01
                  DISPLAY ARQCRM-FS
            END-EVALUATE.
               DISPLAY "VOLTANDO..."                LINE 20 COLUMN 01

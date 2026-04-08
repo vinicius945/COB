@@ -80,7 +80,7 @@
                     DISPLAY ARQCRM-FS
                  END-EVALUATE 
            END-IF.   
-              DISPLAY "VOLTANDO...."               LINE 21 COLUMN 01.
+              DISPLAY "VOLTANDO...."               LINE 22 COLUMN 01.
               ACCEPT WRK-SEGURATELA                LINE 21 COLUMN 01.
             
 
