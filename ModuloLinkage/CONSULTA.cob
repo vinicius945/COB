@@ -1,0 +1,36 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CONSULTA.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 WRK-DADOS.
+           05 WRK-ID      PIC 9(003) VALUES ZEROS.
+           05 WRK-NOME    PIC X(020) VALUE SPACES.
+           05 WRK-EMAIL   PIC X(030) VALUES SPACES.
+
+       SCREEN     SECTION.
+
+       01 TELA.
+           05 BLANK SCREEN.
+       01 ENTRADA.
+           05 LINE 01 COLUMN 10 VALUE "Digite o ID do cliente: ".
+           05 LINE 01 COLUMN 40 USING WRK-ID BLANK WHEN ZEROS.
+
+       01 SAIDA.
+           05 LINE 03 COLUMN 10 VALUE  "Nome ".
+           05 LINE 03 COLUMN 40 USING WRK-NOME.
+           05 LINE 05 COLUMN 10 VALUE "Email ".
+           05 LINE 05 COLUMN 40 USING WRK-EMAIL. 
+           
+       PROCEDURE DIVISION.
+
+       DISPLAY TELA.
+           ACCEPT ENTRADA.
+      *    CALL "DLLCONS" USING WRK-ID, WRK-NOME, WRK-EMAIL.
+           CALL "DLLCONS" USING WRK-DADOS.
+
+           DISPLAY SAIDA.
+       GOBACK.

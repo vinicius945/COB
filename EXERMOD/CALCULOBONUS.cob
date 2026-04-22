@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CALCULOBONUS.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  SALARIO  PIC 9(5)V99.
+          
+       PROCEDURE DIVISION.
+           DISPLAY "Digite o seu salario "
+           ACCEPT SALARIO.
+           CALL "BONUS" USING SALARIO.
+           STOP RUN.

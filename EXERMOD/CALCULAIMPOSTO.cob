@@ -1,0 +1,34 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CALCULAIMPOSTO.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       77 IMPOSTO  PIC 9(04)V99  VALUES ZEROS.
+       77 ALIQUOTA PIC 9(03)V99  VALUES ZEROS.
+
+       LINKAGE SECTION.
+       01 SALARIO PIC 9(04)V99 VALUES ZEROS.
+       
+
+       PROCEDURE DIVISION USING SALARIO.
+           EVALUATE TRUE
+              WHEN SALARIO <= 1900.00
+                 MOVE 0 TO ALIQUOTA
+              WHEN SALARIO > 1900.00 AND SALARIO <= 2800.00
+                 MOVE 7.5 TO ALIQUOTA
+              WHEN SALARIO > 2800.00 AND SALARIO <= 3700.00
+                 MOVE 15 TO ALIQUOTA
+               WHEN SALARIO > 3700.00
+                 MOVE 22.5 TO ALIQUOTA
+           END-EVALUATE.
+
+           COMPUTE IMPOSTO = (SALARIO * ALIQUOTA) / 100.
+              DISPLAY  "Imposto devido: R$" IMPOSTO.
+           COMPUTE SALARIO = SALARIO - IMPOSTO.
+              DISPLAY "Salario Liquido: R$" SALARIO.
+           STOP RUN.
+
+           

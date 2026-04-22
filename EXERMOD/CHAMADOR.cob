@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CHAMADOR.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  NOME-CLIENTE  PIC X(030) VALUE SPACES.
+          
+       PROCEDURE DIVISION.
+           DISPLAY "Digite o nome do cliente "
+           ACCEPT NOME-CLIENTE.
+           CALL "EXIBE" USING NOME-CLIENTE.
+           STOP RUN.

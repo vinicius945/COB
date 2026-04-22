@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CHAMANOTA.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  NOTA  PIC 9(03) VALUES ZEROS.
+          
+       PROCEDURE DIVISION.
+       DISPLAY  "Digite a sua nota: "
+       ACCEPT NOTA.
+       CALL "CLASSIFICA" USING NOTA.
+       STOP RUN.
+         

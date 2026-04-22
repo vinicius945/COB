@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. EXIBE.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       LINKAGE SECTION.
+       01 NOME-CLIENTE    PIC X(030) VALUE SPACES.
+       
+       PROCEDURE DIVISION USING NOME-CLIENTE.   
+           
+           DISPLAY "Bem vindo: " NOME-CLIENTE.
+           GOBACK.
+

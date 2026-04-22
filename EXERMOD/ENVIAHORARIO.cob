@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ENVIAHORARIO.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 BRASILIA PIC 9(02) VALUES ZEROS.
+          
+       PROCEDURE DIVISION.
+           DISPLAY "Digite o horario(Brasilia) em horas: ".
+           ACCEPT BRASILIA.
+           CALL "CONVERTEFUSO" USING BRASILIA.
+           STOP RUN.

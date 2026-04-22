@@ -1,0 +1,18 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CONVERSOR.
+
+       ENVIRONMENT DIVISION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       77 CELSIUS PIC 9(04)V9.
+
+       LINKAGE SECTION.
+       01  TEMP   PIC 9(04)V9.
+       
+
+       PROCEDURE DIVISION USING TEMP.
+           COMPUTE CELSIUS = (TEMP - 32) * 5 / 9.
+           DISPLAY  "Valor convertido: " CELSIUS "ºC".
+           GOBACK.
