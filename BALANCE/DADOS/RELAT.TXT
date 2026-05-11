@@ -1,0 +1,5 @@
+002ANA                 APP BANCO           150
+003PAULO               APP BANCO           200
+003PAULO               APP LOJA            120
+004ROSANA              PIX-DREX            350
+004ROSANA              PIX-BANCO           350
